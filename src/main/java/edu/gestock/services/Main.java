@@ -2,10 +2,12 @@ package edu.gestock.services;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.sql.Date;
 
 import edu.gestock.persistence.conector.Conector;
-import edu.gestock.persistence.dao.Subcategoria;
-import edu.gestock.persistence.manager.SubcategoriaManager;
+import edu.gestock.persistence.dao.Empleado;
+import edu.gestock.persistence.manager.EmpleadoManager;
 
 public class Main {
 
@@ -14,12 +16,12 @@ public class Main {
 		Connection con = new Conector().getMySQLConnection();
 		
 		try {
-			
-			Subcategoria sc = new Subcategoria(Id.generator(7, 10), "BICICLETAS DE MONTAÑA", "CICL");
-			
-			new SubcategoriaManager().deleteSubcategoryByID(con, "yZafSsM");
-			
-			new SubcategoriaManager().findAllSubcategories(con).forEach(System.out::println);
+					
+			Empleado empleado = new Empleado("pruebaJava", "4515115f", "PRUEBA", "PRUEBA", "pepito", Date.valueOf(LocalDate.now()), "Standard");
+			//empleado.setUserPassword("password");
+			//new EmpleadoManager().deleteEmpleado(con, "pruebaJava");
+			new EmpleadoManager().findAllEmployee(con).forEach(System.out::println);
+
 			
 		} finally {
 			try {
