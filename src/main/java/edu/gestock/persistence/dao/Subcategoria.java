@@ -3,6 +3,7 @@ package edu.gestock.persistence.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -10,6 +11,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
 public class Subcategoria {
 	private String id;
 	private String nombre;

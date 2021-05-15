@@ -7,9 +7,13 @@ package edu.gestock.services;
  */
 public class Id {
 
-	/*Genera identidicadores aleatorios para cada pila*/
-	public static String generator() {
-		int nCaracteres = numeroAleatorio(7, 15); //total de caracteres del id
+	/**
+	 * Genera identidicadores aleatorios para cada pila
+	 * @param 
+	 * @return Retorna un identificador aleatorio
+	 */
+	public static String generator(int min, int max) {
+		int nCaracteres = numeroAleatorio(min, max); //total de caracteres del id
 		String id = "";
 		for(int i = 1; i <= nCaracteres; i++) {
 			int caracter = numeroAleatorio(48, 122);
