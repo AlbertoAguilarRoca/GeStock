@@ -89,5 +89,55 @@ public class ProveedorManager {
 		}
 
 	}//end
+	
+	
+	/**
+	 * Funcion para modificar proveedor a traves de su identificador
+	 * @param con
+	 * @param proveedor
+	 * @param cifProveedor
+	 * @return un entero que representa la cantidad de filas afectadas por los cambios realizados
+	 */
+	public int updateProveedor(Connection con, Proveedor proveedor, String cifProveedor) {
+		
+		String sql = "UPDATE proveedor SET cif = ?, id = ?, nombre = ?, telefono = ?, email = ?"
+				+ " WHERE cif = ?";
+		
+		try (PreparedStatement ps = con.prepareStatement(sql)) {
+			ps.setString(1, proveedor.getCif());
+			ps.setString(2, proveedor.getId());
+			ps.setString(3, proveedor.getNombre());
+			ps.setString(4, proveedor.getTelefono());
+			ps.setString(5, proveedor.getEmail());
+			ps.setString(6, cifProveedor);
+			int result = ps.executeUpdate();
+			return result;
 
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+
+	}//end
+	
+	
+	/**
+	 * Funcion para borrar un proveedor determinado a traves de su identificador
+	 * @param con
+	 * @param cifProveedor
+	 * @return un entero que representa la cantidad de filas afectadas por los cambios realizados
+	 */
+	public int deleteProveedor(Connection con, String cifProveedor) {
+		String sql= "DELETE FROM proveedor WHERE cif = ?";
+		try(PreparedStatement ps = con.prepareStatement(sql)){
+		ps.setString(1, cifProveedor);
+		int result= ps.executeUpdate();
+		return result;
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+		
+	}//end
 }

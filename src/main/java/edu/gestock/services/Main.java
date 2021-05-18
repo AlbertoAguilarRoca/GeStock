@@ -9,9 +9,11 @@ import edu.gestock.persistence.conector.Conector;
 import edu.gestock.persistence.dao.Empleado;
 import edu.gestock.persistence.dao.Producto;
 import edu.gestock.persistence.dao.Proveedor;
+import edu.gestock.persistence.dao.Venta;
 import edu.gestock.persistence.manager.EmpleadoManager;
 import edu.gestock.persistence.manager.ProductosManager;
 import edu.gestock.persistence.manager.ProveedorManager;
+import edu.gestock.persistence.manager.VentasManager;
 
 public class Main {
 
@@ -25,10 +27,11 @@ public class Main {
 			//empleado.setUserPassword("password");
 			//new EmpleadoManager().deleteEmpleado(con, "pruebaJava");
 		//	new EmpleadoManager().findAllEmployee(con).forEach(System.out::println);
+			//System.out.println(con.getCatalog());
 			
 			// buscar todos los productos
 			//new ProductosManager().findAllProductos(con).forEach(productos ->System.out.println(productos));
-			//System.out.println(con.getCatalog());
+			
 			
 			//Buscar producto por id
 			//System.out.println(new ProductosManager().findProductosById(con,"greghe"));;
@@ -53,7 +56,32 @@ public class Main {
 			//System.out.println(new ProveedorManager().FindProveedorByCif(con, "B49515411"));
 			
 			//insertar proveedor
-			//new Proveedor prueba = new Proveedor("B49515455", "Adidas", "", null, null) 
+			//Proveedor prueba = new Proveedor("B49515455", "Deca", "Decathlon", "632554489", "Declathlon@gmail.com");
+			//new ProveedorManager().insertProveedor(con, prueba);
+			
+			//Modificamos un proveedor
+			//Proveedor prueba = new Proveedor("B49515455", "Ast", "Asturias", "632554489", "Declathlon@gmail.com");
+			//new ProveedorManager().updateProveedor(con, prueba, "B49515455");
+			
+			//borrar un proveedor
+			//new ProveedorManager().deleteProveedor(con,"B49515455");
+			
+			//muestra todas las ventas
+			//new VentasManager().findAllVenta(con).forEach(venta ->System.out.println(venta));
+			
+			//buscar venta por Nventa
+			//System.out.println(new VentasManager().FindVentaBynVenta(con, "gfrthg"));
+				
+			//Insertar una venta
+			//Venta vendido = new Venta("funcionarrr", "stardard", 35.89,Date.valueOf(LocalDate.now()) );
+			//new VentasManager().insertVenta(con, vendido);
+			
+			//modificar venta
+			//Venta vendido = new Venta("funcionarrr", "stardard", 48.99,Date.valueOf(LocalDate.now()) );
+			//System.out.println(new VentasManager().updateVenta(con, vendido, "funcionarrr"));
+			
+			//borrar una venta
+			//System.out.println(new VentasManager().deleteVenta(con, "funcionarrr"));
 			
 			
 		} finally {

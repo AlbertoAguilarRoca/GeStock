@@ -40,7 +40,7 @@ public class ProductosManager {
 	}// end
 
 	/**
-	 * Funcion para encontrar un producto mediante su identificador
+	 * Funcion para encontrar un producto mediante su identificador id
 	 * 
 	 * @param con
 	 * @param id
@@ -97,7 +97,7 @@ public class ProductosManager {
 	}//end
 	
 	/**
-	 * Funcion para modificar productos a traves de su identificador
+	 * Funcion para modificar productos a traves de su identificador id
 	 * @param con
 	 * @param producto
 	 * @param idProducto
@@ -134,7 +134,7 @@ public class ProductosManager {
 	
 	 
 	/**
-	 * Funcion para borrar un producto determinado a traves de su identificador
+	 * Funcion para borrar un producto determinado a traves de su identificador id
 	 * @param con
 	 * @param idProducto
 	 * @return un entero que representa la cantidad de filas afectadas por los cambios realizados
