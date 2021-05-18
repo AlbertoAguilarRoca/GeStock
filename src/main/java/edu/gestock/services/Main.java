@@ -7,10 +7,12 @@ import java.sql.Date;
 
 import edu.gestock.persistence.conector.Conector;
 import edu.gestock.persistence.dao.Empleado;
+import edu.gestock.persistence.dao.EsVendido;
 import edu.gestock.persistence.dao.Producto;
 import edu.gestock.persistence.dao.Proveedor;
 import edu.gestock.persistence.dao.Venta;
 import edu.gestock.persistence.manager.EmpleadoManager;
+import edu.gestock.persistence.manager.EsVendidoManager;
 import edu.gestock.persistence.manager.ProductosManager;
 import edu.gestock.persistence.manager.ProveedorManager;
 import edu.gestock.persistence.manager.VentasManager;
@@ -83,7 +85,20 @@ public class Main {
 			//borrar una venta
 			//System.out.println(new VentasManager().deleteVenta(con, "funcionarrr"));
 			
+			//mostrar toda la relacion Esvendido
+			//new EsVendidoManager().findAllesVendido(con).forEach(ve->System.out.println(ve));
 			
+			//buscar esvendido por idproducto
+			//System.out.println(new EsVendidoManager().findEsVendidoByidProducto(con, "greghe"));
+		
+			//buscar esvendido por nVenta
+			//System.out.println(new EsVendidoManager().findEsVendidoBynVenta(con, "gfrthg"));
+		
+			//Insertar una relacion esvendido
+			
+			
+		
+		
 		} finally {
 			try {
 				con.close();

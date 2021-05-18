@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.gestock.persistence.dao.Proveedor;
+
 import edu.gestock.persistence.dao.Venta;
 
 public class VentasManager {
