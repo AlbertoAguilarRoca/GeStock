@@ -3,6 +3,7 @@ edu\gestock\persistence\manager\VentasManager.class
 edu\gestock\persistence\dao\Venta.class
 edu\gestock\services\Main.class
 edu\gestock\persistence\dao\EsVendido.class
+edu\gestock\gestockProyect\LoginController.class
 edu\gestock\persistence\manager\EsVendidoManager.class
 edu\gestock\persistence\manager\EmpleadoManager.class
 edu\gestock\persistence\dao\Categoria.class

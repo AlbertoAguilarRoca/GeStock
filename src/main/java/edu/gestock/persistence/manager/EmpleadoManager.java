@@ -56,7 +56,25 @@ public class EmpleadoManager {
 			e.printStackTrace();
 			return null;
 		}
-	}//end 
+	}//end
+	
+	public int checkUserLogin(Connection con, String id, String password) {
+		String sql = "SELECT count(*) as rowcount FROM empleado where id= ? and aes_decrypt(userPassword, 'keypassword') = ?";
+		try(PreparedStatement ps = con.prepareStatement(sql)){
+			ps.setString(1, id);
+			ps.setString(2, password);
+			ResultSet result = ps.executeQuery();
+			result.beforeFirst();
+			int contador = 0;
+			while(result.next()) {
+				contador = result.getInt("rowcount");
+			}
+			return contador;
+		} catch(SQLException e) {
+			e.printStackTrace();
+			return -1;
+		}
+	}
 	
 	/**
 	 * Funcion para insertar nuevos empleados
