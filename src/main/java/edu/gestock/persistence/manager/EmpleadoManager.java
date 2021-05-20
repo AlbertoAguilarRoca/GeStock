@@ -58,6 +58,14 @@ public class EmpleadoManager {
 		}
 	}//end
 	
+	/**
+	 * 
+	 * @param con
+	 * @param id
+	 * @param password
+	 * @return devuelve el número de filas que han sido encontradas (0 si no hay resultados,
+	 * 1 en caso de si encontrarlos)
+	 */
 	public int checkUserLogin(Connection con, String id, String password) {
 		String sql = "SELECT count(*) as rowcount FROM empleado where id= ? and aes_decrypt(userPassword, 'keypassword') = ?";
 		try(PreparedStatement ps = con.prepareStatement(sql)){

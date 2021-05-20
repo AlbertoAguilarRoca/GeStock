@@ -8,17 +8,21 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import edu.gestock.services.UserSession;
+
 /**
  * JavaFX App
  */
 public class App extends Application {
-
+	
+	private static UserSession sesion;
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 1200, 900);
+        scene = new Scene(loadFXML("Login"), 1200, 900);
         stage.setScene(scene);
+        stage.setTitle("GeStock");
         stage.show();
     }
 
@@ -29,6 +33,14 @@ public class App extends Application {
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
+    }
+    
+    public static UserSession getUserSesion() {
+    	return sesion;
+    }
+    
+    public static void setUserSesion(UserSession newSesion) {
+    	sesion = newSesion;
     }
 
     public static void main(String[] args) {

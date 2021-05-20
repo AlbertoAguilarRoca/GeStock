@@ -10,13 +10,12 @@ edu\gestock\persistence\dao\Categoria.class
 edu\gestock\persistence\dao\Proveedor.class
 edu\gestock\services\Id.class
 edu\gestock\persistence\manager\CategoriaManager.class
-edu\gestock\gestockProyect\SecondaryController.class
+edu\gestock\services\UserSession.class
 edu\gestock\persistence\conector\Conector.class
 edu\gestock\gestockProyect\MainController.class
 edu\gestock\gestockProyect\App.class
 edu\gestock\persistence\dao\Empleado.class
 edu\gestock\persistence\dao\Subcategoria.class
-edu\gestock\gestockProyect\PrimaryController.class
 edu\gestock\persistence\conector\MySQLConstants.class
 edu\gestock\gestockProyect\NuevaVentaController.class
 edu\gestock\persistence\manager\ProveedorManager.class
