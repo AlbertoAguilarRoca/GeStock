@@ -23,6 +23,7 @@ public class App extends Application {
         scene = new Scene(loadFXML("Login"), 1200, 900);
         stage.setScene(scene);
         stage.setTitle("GeStock");
+        stage.sizeToScene();
         stage.show();
     }
 
@@ -35,10 +36,12 @@ public class App extends Application {
         return fxmlLoader.load();
     }
     
+    /*Método para obtener la sesion*/
     public static UserSession getUserSesion() {
     	return sesion;
     }
     
+    /*Metodo para establecer una sesion*/
     public static void setUserSesion(UserSession newSesion) {
     	sesion = newSesion;
     }

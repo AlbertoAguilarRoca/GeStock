@@ -6,27 +6,47 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuButton;
 
 public class MainController implements Initializable {
 	
 	@FXML
-	private Label lbEmpleado;
+	private MenuButton mBtUser;
+	@FXML
+	private MenuBar mnBar;
 	
 	public MainController(){
 		
 	}
 	
+	/**
+	 * El metodo inicialize controla que usuario ha iniciado sesión. En caso de no tener permisos de
+	 * administrador, solo podrá realizar ventas.
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		lbEmpleado.setText(App.getUserSesion().getEmpleado().getId());		
+		mBtUser.setText(App.getUserSesion().getEmpleado().getId());
+		
+		if(App.getUserSesion().getEmpleado().getPermisos().equals("Standard")) {
+			mnBar.setVisible(false);
+		}
+		
 	}
 
 	@FXML
-	public void switchToNewVenta() throws IOException {
-		
-		App.setRoot("NuevaVenta");
-		
-	}	
+	public void switchToNewVenta() throws IOException {		
+		App.setRoot("NuevaVenta");		
+	}
+	
+	@FXML
+	public void logOut() throws IOException {
+		App.setRoot("Login");
+	}
+	
+	@FXML
+	public void switchToProductos() throws IOException {
+		App.setRoot("Productos");
+	}
 	
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
@@ -8,28 +9,66 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.gestock.gestockProyect.MainController">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="425.0" layoutY="265.0" mnemonicParsing="false" onAction="#switchToNewVenta" prefHeight="85.0" prefWidth="350.0" style="-fx-background-color: #66e362;" text="Nueva Venta" textAlignment="CENTER" textFill="WHITE">
+            <Button layoutX="425.0" layoutY="354.0" mnemonicParsing="false" onAction="#switchToNewVenta" prefHeight="85.0" prefWidth="350.0" style="-fx-background-color: #66e362;" text="Nueva Venta" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="36.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </AnchorPane>
    </center>
    <top>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="80.0" prefWidth="1200.0" style="-fx-background-color: #426ddb;" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="lbEmpleado" layoutX="994.0" layoutY="28.0" />
-            <ImageView fitHeight="66.0" fitWidth="152.0" layoutX="32.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="935.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../img/logo.png" />
+                  <Image url="@../img/user_16px.png" />
                </image>
             </ImageView>
+            <ImageView fitHeight="66.0" fitWidth="152.0" layoutX="31.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/logo-gestock-blanco.png" />
+               </image>
+            </ImageView>
+            <MenuBar fx:id="mnBar" layoutX="211.0" layoutY="1.0" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #426ddb;">
+              <menus>
+                <Menu mnemonicParsing="false" text="Productos">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#switchToProductos" text="Ver Productos" />
+                        <MenuItem mnemonicParsing="false" text="Añadir Productos" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Ventas">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Registro" />
+                        <MenuItem mnemonicParsing="false" text="Informes" />
+                  </items>
+                </Menu>
+              </menus>
+               <padding>
+                  <Insets bottom="10.0" right="10.0" top="25.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </MenuBar>
+            <MenuButton fx:id="mBtUser" contentDisplay="RIGHT" layoutX="973.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="201.0" style="-fx-background-color: #426ddb;" textFill="WHITE">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Ver Perfil" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                <MenuItem mnemonicParsing="false" onAction="#logOut" text="Cerrar Sesión" />
+              </items>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </MenuButton>
          </children>
       </AnchorPane>
    </top>

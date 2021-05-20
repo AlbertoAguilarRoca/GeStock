@@ -11,6 +11,8 @@ import java.util.List;
 
 
 import edu.gestock.persistence.dao.Producto;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class ProductosManager {
 
@@ -21,12 +23,12 @@ public class ProductosManager {
 	 * @return Lista de todos los productos
 	 */
 
-	public List<Producto> findAllProductos(Connection con) {
+	public ObservableList<Producto> findAllProductos(Connection con) {
 		String sql = "SELECT * FROM productos";
 		try (Statement stmt = con.createStatement()) {
 			ResultSet result = stmt.executeQuery(sql);
 			result.beforeFirst();
-			List<Producto> productos = new ArrayList<>();
+			ObservableList<Producto> productos = FXCollections.observableArrayList();
 			while (result.next()) {
 				productos.add(new Producto(result));
 			}
