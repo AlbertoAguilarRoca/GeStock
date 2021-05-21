@@ -10,7 +10,6 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 @AllArgsConstructor
 public class Subcategoria {
 	private String id;
@@ -25,5 +24,13 @@ public class Subcategoria {
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public String toString() {
+		return "" + nombre;
 	}//end resulset
+	
+	
+	
 }

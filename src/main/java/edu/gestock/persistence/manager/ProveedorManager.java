@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.gestock.persistence.dao.Proveedor;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class ProveedorManager {
 
@@ -18,12 +20,12 @@ public class ProveedorManager {
 	 * @param con
 	 * @return una lista de todos los proveedores
 	 */
-	public List<Proveedor> findAllProveedor(Connection con) {
+	public ObservableList<Proveedor> findAllProveedor(Connection con) {
 		String sql = "SELECT * FROM proveedor";
 		try (Statement stmt = con.createStatement()) {
 			ResultSet result = stmt.executeQuery(sql);
 			result.beforeFirst();
-			List<Proveedor> proveedores = new ArrayList<>();
+			ObservableList<Proveedor> proveedores = FXCollections.observableArrayList();
 			while (result.next()) {
 				proveedores.add(new Proveedor(result));
 			}

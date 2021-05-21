@@ -27,6 +27,16 @@
    <top>
       <AnchorPane prefHeight="80.0" prefWidth="1200.0" style="-fx-background-color: #426ddb;" BorderPane.alignment="CENTER">
          <children>
+            <MenuButton fx:id="mBtUser" contentDisplay="RIGHT" layoutX="973.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="201.0" style="-fx-background-color: #426ddb;" textFill="WHITE">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Ver Perfil" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                <MenuItem mnemonicParsing="false" onAction="#logOut" text="Cerrar Sesión" />
+              </items>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </MenuButton>
             <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="935.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/user_16px.png" />
@@ -42,7 +52,7 @@
                 <Menu mnemonicParsing="false" text="Productos">
                   <items>
                     <MenuItem mnemonicParsing="false" onAction="#switchToProductos" text="Ver Productos" />
-                        <MenuItem mnemonicParsing="false" text="Añadir Productos" />
+                        <MenuItem mnemonicParsing="false" onAction="#switchToNewProductos" text="Añadir Productos" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Ventas">
@@ -59,16 +69,6 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </MenuBar>
-            <MenuButton fx:id="mBtUser" contentDisplay="RIGHT" layoutX="973.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="201.0" style="-fx-background-color: #426ddb;" textFill="WHITE">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Ver Perfil" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                <MenuItem mnemonicParsing="false" onAction="#logOut" text="Cerrar Sesión" />
-              </items>
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </MenuButton>
          </children>
       </AnchorPane>
    </top>

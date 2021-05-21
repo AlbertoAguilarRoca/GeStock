@@ -12,6 +12,7 @@ edu\gestock\services\Id.class
 edu\gestock\persistence\manager\CategoriaManager.class
 edu\gestock\services\UserSession.class
 edu\gestock\gestockProyect\ProductosController.class
+edu\gestock\gestockProyect\NuevoProductoController.class
 edu\gestock\persistence\conector\Conector.class
 edu\gestock\gestockProyect\MainController.class
 edu\gestock\gestockProyect\App.class

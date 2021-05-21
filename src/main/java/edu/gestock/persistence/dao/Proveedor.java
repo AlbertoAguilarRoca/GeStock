@@ -10,7 +10,6 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 @AllArgsConstructor
 public class Proveedor {
 	private String cif;
@@ -30,4 +29,10 @@ public class Proveedor {
 			e.printStackTrace();
 		}
 	}//end result
+	
+	@Override
+	public String toString() {
+		return "" + nombre;
+	}//end resulset
+	
 }

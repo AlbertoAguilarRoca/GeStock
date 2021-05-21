@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.gestock.persistence.dao.Subcategoria;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class SubcategoriaManager {
 
@@ -18,12 +20,12 @@ public class SubcategoriaManager {
 	 * @param con
 	 * @return Array list de subcategorias
 	 */
-	public List<Subcategoria> findAllSubcategories(Connection con) {
+	public ObservableList<Subcategoria> findAllSubcategories(Connection con) {
 		String sql = "SELECT * FROM subcategoria";
 		try(Statement stmt = con.createStatement()){
 			ResultSet result = stmt.executeQuery(sql);
 			result.beforeFirst();
-			List<Subcategoria> subcategorias = new ArrayList<>();
+			ObservableList<Subcategoria> subcategorias = FXCollections.observableArrayList();
 			while(result.next()) {
 				subcategorias.add(new Subcategoria(result));
 			}
