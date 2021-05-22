@@ -131,11 +131,12 @@
             <ComboBox fx:id="cbSubcategoria" layoutX="362.0" layoutY="89.0" prefHeight="39.0" prefWidth="235.0" />
             <ComboBox fx:id="cbProveedor" layoutX="346.0" layoutY="275.0" prefHeight="39.0" prefWidth="253.0" />
             <Label fx:id="lbMensaje" layoutX="235.0" layoutY="600.0" prefHeight="27.0" prefWidth="367.0" textFill="#4ecd1b" />
-            <Label fx:id="lbMensajeError" layoutX="235.0" layoutY="600.0" prefHeight="27.0" prefWidth="367.0" textFill="#cc1d1d" />
+            <Label fx:id="lbMessageUp" layoutX="846.0" layoutY="176.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
 			</children>
 		</AnchorPane>
 	</left>
-   <center>
-		<AnchorPane prefHeight="545.0" prefWidth="1200.0" BorderPane.alignment="CENTER" />
-   </center>
 </BorderPane>

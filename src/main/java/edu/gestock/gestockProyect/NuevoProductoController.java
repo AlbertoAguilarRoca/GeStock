@@ -29,6 +29,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 
@@ -70,10 +71,11 @@ public class NuevoProductoController implements Initializable {
 	private ComboBox<Subcategoria> cbSubcategoria;
 	
 	@FXML
-	private Label lbMensaje;
+	private Label lbMensaje;//Mensaje que se muestra al añadir un producto
 	
 	@FXML
-	private Label lbMensajeError;
+	private Label lbMessageUp;//Mensaje controlador de carga de archivos
+	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -82,7 +84,7 @@ public class NuevoProductoController implements Initializable {
 
 	/**
 	 * Hacemos una llamada a la base de datos y metemos los datos de los proveedores
-	 * y categorias.
+	 * y categorias en los combos. De está forma no habra lugar a error.
 	 */
 	public void fillCombos() {
 		Connection con = null;
@@ -139,10 +141,10 @@ public class NuevoProductoController implements Initializable {
 
 			if(rowAfected == 1) {
 				lbMensaje.setText("El producto se ha subido correctamente");
-				lbMensajeError.setVisible(false);
+				lbMensaje.setTextFill(Color.GREEN);
 			} else {
-				lbMensajeError.setText("Error al subir");
-				lbMensaje.setVisible(false);
+				lbMensaje.setText("Error al subir");
+				lbMensaje.setTextFill(Color.CRIMSON);
 			}
 			
 		} finally {
@@ -168,7 +170,8 @@ public class NuevoProductoController implements Initializable {
 	}
 	
 	/**
-	 * Recolecta un archivo 
+	 * Permite al usuario subir un archivo .csv y añadir la información de nuevos a la base de datos de
+	 * forma masiva.
 	 * @throws SQLException 
 	 * @throws ClassNotFoundException 
 	 * 
@@ -179,11 +182,10 @@ public class NuevoProductoController implements Initializable {
 		Connection con = new Conector().getMySQLConnection();
 		
 		try {
-		
 		FileChooser fc = new FileChooser();
 		fc.getExtensionFilters().add(new ExtensionFilter("Archivos CSV", "*.csv"));
 		File archivo = fc.showOpenDialog(null);
-				
+		
 		if(archivo != null) {
 			String ruta = archivo.getAbsolutePath();
 			List<Producto> productos = new ArrayList<>();
@@ -194,15 +196,20 @@ public class NuevoProductoController implements Initializable {
 						atributo[8], Integer.parseInt(atributo[9]));
 				return nuevoProducto;
 				}).collect(Collectors.toList());
-				
+				//Control de subida de productos. Mensajes de error
+				int totalRowsBefore = new ProductosManager().countRowProducts(con);
 				productos.forEach(producto -> new ProductosManager().insertProductos(con, producto));
-						
+				
+				int totalRowsAfter = new ProductosManager().countRowProducts(con);
+				
+				imprimeMensajeCarga(totalRowsBefore, totalRowsAfter);
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 					
-		}//end if
-		} finally {
+			}//end if
+		}  finally {
 			try {
 				con.close();
 			} catch(SQLException e) {
@@ -210,5 +217,16 @@ public class NuevoProductoController implements Initializable {
 			}
 		}
 	}//end upload
+	
+	private void imprimeMensajeCarga(int antes, int despues) {
+		if(antes < despues) {
+			int total = despues - antes;
+			lbMessageUp.setText(total + " producto/s subidos con éxito.");
+			lbMessageUp.setTextFill(Color.GREEN);
+		} else {
+			lbMessageUp.setText("Ha ocurrido un error en la subida.");
+			lbMessageUp.setTextFill(Color.CRIMSON);
+		}
+	}
 
 }

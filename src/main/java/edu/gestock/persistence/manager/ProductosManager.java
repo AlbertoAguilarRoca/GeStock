@@ -67,6 +67,22 @@ public class ProductosManager {
 		}
 
 	}// end
+	
+	public int countRowProducts(Connection con) {
+		String sql = "SELECT count(*) as rowcount FROM productos";
+		try (Statement stmt = con.createStatement()){
+			ResultSet result = stmt.executeQuery(sql);
+			result.beforeFirst();
+			int contador = 0;
+			while(result.next()) {
+				contador = result.getInt("rowcount");
+			}
+			return contador;
+		} catch(SQLException e) {
+			e.printStackTrace();
+			return -1;
+		}
+	}
 
 	/**
 	 * Funcion para insertar nuevos productos

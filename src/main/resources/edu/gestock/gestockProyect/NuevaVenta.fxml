@@ -1,66 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
- 
-
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity"
-	minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0"
-	prefWidth="1200.0" xmlns="http://javafx.com/javafx/8"
-	xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.gestock.gestockProyect.NuevaVentaController">
 	<center>
-		<AnchorPane prefHeight="200.0" prefWidth="200.0"
-			BorderPane.alignment="CENTER">
-			<children>
-				<TableView fx:id="tvProductos" layoutX="68.0"
-					layoutY="117.0" prefHeight="596.0" prefWidth="800.0">
-					<columns>
-						<TableColumn fx:id="colRefProducto" prefWidth="75.0"
-							text="Ref.Producto" />
-						<TableColumn fx:id="colNombre" prefWidth="75.0"
-							text="Nombre" />
-						<TableColumn fx:id="colPrecio" prefWidth="75.0"
-							text="Precio" />
-						<TableColumn fx:id="colCantidad" prefWidth="75.0"
-							text="Cantidad" />
-					</columns>
-				</TableView>
-			</children>
+		<AnchorPane prefHeight="900.0" prefWidth="907.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="tvListaProductos" layoutX="39.0" layoutY="235.0" prefHeight="568.0" prefWidth="701.0">
+              <columns>
+                <TableColumn fx:id="colId" prefWidth="109.0" text="Referencia" />
+                <TableColumn fx:id="colNombre" prefWidth="272.0" text="Nombre" />
+                  <TableColumn fx:id="colTalla" prefWidth="109.0" text="Talla" />
+                  <TableColumn fx:id="colCantidad" prefWidth="70.0" text="Cantidad" />
+                  <TableColumn fx:id="colPrecio" prefWidth="140.0" text="Precio" />
+              </columns>
+            </TableView>
+         </children>
 		</AnchorPane>
 	</center>
 	<right>
-		<AnchorPane prefHeight="200.0" prefWidth="200.0"
-			BorderPane.alignment="CENTER">
+		<AnchorPane prefHeight="900.0" prefWidth="421.0" BorderPane.alignment="CENTER">
 			<children>
-				<Label fx:id="lbRefProducto" layoutX="82.0" layoutY="30.0"
-					text="Ref.Producto" />
-				<Label fx:id="lbPagar" layoutX="56.0" layoutY="608.0"
-					text="Pagar" />
-				<Label fx:id="lbImporte" layoutX="50.0" layoutY="488.0"
-					text="Importe" />
-				<Label fx:id="lbAñadir" layoutX="139.0" layoutY="127.0"
-					text="Añadir" />
-				<Label fx:id="lbCantidad" layoutX="7.0" layoutY="127.0"
-					text="Cantidad" />
-				<TextField fx:id="tfRefProducto" layoutX="42.0"
-					layoutY="56.0" />
-				<TextField fx:id="tfImporte" layoutX="30.0"
-					layoutY="524.0" prefHeight="25.0" prefWidth="83.0" />
-				<TextField fx:id="tfCantidad" layoutX="7.0"
-					layoutY="156.0" prefHeight="25.0" prefWidth="71.0" />
-				<Button fx:id="btnAñadir" layoutX="113.0" layoutY="156.0"
-					mnemonicParsing="false" text="ButtonAñadir" />
-				<Button fx:id="btnPagar" layoutX="20.0" layoutY="643.0"
-					mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0"
-					text="ButtonPagar" />
+            <Line endY="900.0" />
+            <Line endX="360.0" layoutX="20.0" layoutY="350.0" startX="15.0" />
+				<Label layoutX="37.0" layoutY="676.0" text="Total:" />
+				<Label layoutX="325.0" layoutY="135.0" text="Cantidad" />
+				<TextField fx:id="tfRefProducto" layoutX="26.0" layoutY="164.0" prefHeight="40.0" prefWidth="272.0" promptText="Referencia de producto" />
+				<TextField fx:id="tfDescuento" layoutX="208.0" layoutY="599.0" prefHeight="48.0" prefWidth="98.0" />
+				<TextField fx:id="tfCantidad" layoutX="314.0" layoutY="164.0" prefHeight="40.0" prefWidth="71.0" text="1" />
+				<Button fx:id="btAddProduct" layoutX="145.0" layoutY="225.0" mnemonicParsing="false" onAction="#addProductToTable" prefHeight="50.0" prefWidth="239.0" style="-fx-background-color: #41d923;" text="Añadir producto" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></Button>
+				<Button fx:id="btnPagar" layoutX="34.0" layoutY="738.0" mnemonicParsing="false" onAction="#confirmarPago" prefHeight="60.0" prefWidth="355.0" style="-fx-background-color: #1a69c4;" text="Confirmar pago" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></Button>
+            <Button fx:id="btDeleteProducto" layoutX="62.0" layoutY="226.0" mnemonicParsing="false" onAction="#borrarElemento" prefHeight="50.0" prefWidth="66.0" style="-fx-background-color: #d92323;" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/delete_40px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label fx:id="lbTotalImporte" alignment="CENTER_RIGHT" layoutX="78.0" layoutY="651.0" prefHeight="70.0" prefWidth="274.0" textAlignment="RIGHT">
+               <font>
+                  <Font name="System Bold" size="42.0" />
+               </font>
+            </Label>
+            <Label layoutX="37.0" layoutY="613.0" text="Aplicar descuento (%)" />
+            <Line endX="360.0" layoutX="20.0" layoutY="590.0" startX="15.0" />
+            <TextField fx:id="tfPagoCliente" layoutX="71.0" layoutY="378.0" prefHeight="40.0" prefWidth="312.0" promptText="Importe pagado por el cliente" />
+            <Button fx:id="btCalculaCambio" layoutX="143.0" layoutY="438.0" mnemonicParsing="false" onAction="#calcularCambio" prefHeight="50.0" prefWidth="239.0" style="-fx-background-color: #1a69c4;" text="Calcular cambio" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Button>
+            <Label fx:id="lbCambio" alignment="CENTER_RIGHT" layoutX="141.0" layoutY="503.0" prefHeight="70.0" prefWidth="216.0" textAlignment="RIGHT">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+            </Label>
+            <Label layoutX="37.0" layoutY="527.0" text="Cambio a devolver:" />
+            <Label fx:id="lbProductNotFound" alignment="CENTER" layoutX="13.0" layoutY="358.0" prefHeight="21.0" prefWidth="406.0" textFill="#d32323" />
+            <Label fx:id="lbCambio1" alignment="CENTER_RIGHT" layoutX="353.0" layoutY="503.0" prefHeight="70.0" prefWidth="28.0" text="€" textAlignment="RIGHT">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbCambio11" alignment="CENTER_RIGHT" layoutX="353.0" layoutY="651.0" prefHeight="70.0" prefWidth="28.0" text="€" textAlignment="RIGHT">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+            </Label>
+            <Button fx:id="btDescontar" layoutX="317.0" layoutY="599.0" mnemonicParsing="false" onAction="#descontarImporte" prefHeight="28.0" prefWidth="66.0" style="-fx-background-color: #41d923;" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/checkmark_40px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
 			</children>
 		</AnchorPane>
 	</right>
 </BorderPane>
-

@@ -10,6 +10,7 @@ edu\gestock\persistence\dao\Categoria.class
 edu\gestock\persistence\dao\Proveedor.class
 edu\gestock\services\Id.class
 edu\gestock\persistence\manager\CategoriaManager.class
+edu\gestock\services\ListaCompra.class
 edu\gestock\services\UserSession.class
 edu\gestock\gestockProyect\ProductosController.class
 edu\gestock\gestockProyect\NuevoProductoController.class

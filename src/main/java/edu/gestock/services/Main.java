@@ -5,7 +5,9 @@ import java.sql.SQLException;
 
 import edu.gestock.persistence.conector.Conector;
 import edu.gestock.persistence.dao.Empleado;
+import edu.gestock.persistence.dao.Producto;
 import edu.gestock.persistence.manager.EmpleadoManager;
+import edu.gestock.persistence.manager.ProductosManager;
 
 public class Main {
 
@@ -15,8 +17,13 @@ public class Main {
 		
 		try {
 			
-			System.out.println(new EmpleadoManager().checkUserLogin(con, "admin", "adminpassword"));
-			//new EmpleadoManager().findAllEmployee(con).forEach(System.out::println);
+			Producto producto = new ProductosManager().findProductosById(con, "hla");
+			
+			if(producto == null) {
+				System.out.println("Producto no encontrado");
+			} else {
+				System.out.println(producto.toString());
+			}
 		
 		} finally {
 			try {
