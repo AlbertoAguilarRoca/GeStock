@@ -1,7 +1,9 @@
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\persistence\manager\EmpleadoManager.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\persistence\conector\Conector.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\persistence\dao\Categoria.java
+D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\services\mail\CredentialsConstants.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\persistence\manager\EsVendidoManager.java
+D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\services\mail\EmailNotification.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\persistence\manager\ProveedorManager.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\persistence\manager\ProductosManager.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\persistence\dao\Proveedor.java
@@ -23,4 +25,5 @@ D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\e
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\services\Main.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\persistence\dao\Subcategoria.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\gestockProyect\App.java
+D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\gestockProyect\RegistroVentasController.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\persistence\dao\Venta.java

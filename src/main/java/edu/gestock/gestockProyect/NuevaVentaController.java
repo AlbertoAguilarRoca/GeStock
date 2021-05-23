@@ -13,12 +13,15 @@ import java.util.ResourceBundle;
 import edu.gestock.persistence.conector.Conector;
 import edu.gestock.persistence.dao.EsVendido;
 import edu.gestock.persistence.dao.Producto;
+import edu.gestock.persistence.dao.Proveedor;
 import edu.gestock.persistence.dao.Venta;
 import edu.gestock.persistence.manager.EsVendidoManager;
 import edu.gestock.persistence.manager.ProductosManager;
+import edu.gestock.persistence.manager.ProveedorManager;
 import edu.gestock.persistence.manager.VentasManager;
 import edu.gestock.services.Id;
 import edu.gestock.services.ListaCompra;
+import edu.gestock.services.mail.EmailNotification;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -134,7 +137,8 @@ public class NuevaVentaController implements Initializable {
     			
     			listaCompra.add(productoLista);
     			calculaImporte(listaCompra);
-    			tvListaProductos.setItems(listaCompra); 			
+    			tvListaProductos.setItems(listaCompra);
+    			lbProductNotFound.setText("");
     			
     		}
     		 		
@@ -148,6 +152,13 @@ public class NuevaVentaController implements Initializable {
     	
     }//end addproducto
 
+    /**
+     * Con este método se generán las ventas en la base de datos. Además de controlar el stock y
+     * enviar mensajes por correo en caso de 
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     * @throws IOException
+     */
     @FXML
     void confirmarPago() throws ClassNotFoundException, SQLException, IOException {
     	Connection con = new Conector().getMySQLConnection();
@@ -155,6 +166,7 @@ public class NuevaVentaController implements Initializable {
     	try {
     		
     		String idVenta = Id.generator(7, 20);
+    		
     		Venta nuevaVenta = new Venta(idVenta, App.getUserSesion().getEmpleado().getId(), 
     				Double.parseDouble(lbTotalImporte.getText()), Date.valueOf(LocalDate.now()));
     		
@@ -163,6 +175,9 @@ public class NuevaVentaController implements Initializable {
     		listaCompra.forEach(producto -> {
     			new EsVendidoManager().insertEsVendido(con, new EsVendido(producto.getId(), idVenta, producto.getCantidad()));
     			//Borrar cantidad de producto de la bd
+    			new ProductosManager().reduceStock(con, producto.getId(), producto.getCantidad());
+    			
+    			notificaRoturaStock(con, producto.getId());
     		});
     		
     		App.setRoot("Main");
@@ -241,6 +256,29 @@ public class NuevaVentaController implements Initializable {
 		calculaImporte(listaCompra);
 	}
 	
-	
+	/**
+	 * Función para notificar las roturas de stock por correo
+	 * @param con
+	 * @param idProducto
+	 */
+	public void notificaRoturaStock(Connection con, String idProducto) {
+		//Creamos un nuevo prod
+		Producto producto = new ProductosManager().findProductosById(con, idProducto);	
+		Integer diferencia = producto.getCantidad() - producto.getRoturaStock();
+		Proveedor proveedor = new ProveedorManager().FindProveedorByCif(con, producto.getIdProveedor());
+		
+		//Si la diferencia es 0 o negativa se envia una notificación por correo
+		if(diferencia == 0 || diferencia < 0) {
+			String subject = "Aviso de Rotura de Stock. Producto: "+producto.getId();
+			String contenido = "<h1>Aviso de Rotura de Stock</h1>El producto: <b>"+producto.getNombre()+"</b> está bajo mínimos de stock. <b>Se recomienda "
+					+ "solicitar un reabasticimiento del producto lo antes posible.<br>Quedán "+producto.getCantidad()+" productos en el almacén."
+					+ "<h2>Datos del proveedor</h2>"
+					+ "<ul><li>Nombre: "+proveedor.getNombre()+"</li>"
+							+ "<li>CIF: "+proveedor.getCif()+"</li>"
+									+ "<li>Email: "+proveedor.getEmail()+"</li>"
+											+ "<li> Teléfono: "+proveedor.getTelefono()+"</li></ul>";
+			new EmailNotification().send("gestorstockapp@gmail.com", "gestorstockapp@gmail.com", subject, contenido);
+		}
+	}
 
 }

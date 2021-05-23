@@ -139,7 +139,14 @@
                   <TableColumn fx:id="colRotura" prefWidth="72.0" text="Rotura" />
               </columns>
             </TableView>
-            <TextField fx:id="tfBuscar" layoutX="38.0" layoutY="15.0" prefHeight="39.0" prefWidth="429.0" promptText="Busca por referencia, nombre, talla..." />
+            <TextField fx:id="tfBuscar" layoutX="93.0" layoutY="15.0" prefHeight="39.0" prefWidth="461.0" promptText="Busca por referencia, nombre, precio, color..." />
+            <ComboBox fx:id="cbProveedor" layoutX="573.0" layoutY="15.0" onMouseClicked="#seleccionarItemProveedor" prefHeight="39.0" prefWidth="281.0" promptText="Proveedores" />
+            <ComboBox fx:id="cbCategorias" layoutX="882.0" layoutY="15.0" onMouseClicked="#seleccionarItemCategoria" prefHeight="39.0" prefWidth="281.0" promptText="Categorías" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="38.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/search_40px.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </bottom>

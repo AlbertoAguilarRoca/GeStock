@@ -9,8 +9,10 @@ import java.util.ResourceBundle;
 import edu.gestock.persistence.conector.Conector;
 import edu.gestock.persistence.dao.Producto;
 import edu.gestock.persistence.dao.Proveedor;
+import edu.gestock.persistence.dao.Subcategoria;
 import edu.gestock.persistence.manager.ProductosManager;
 import edu.gestock.persistence.manager.ProveedorManager;
+import edu.gestock.persistence.manager.SubcategoriaManager;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -21,6 +23,7 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -86,6 +89,10 @@ public class ProductosController implements Initializable {
 	private Label pvEmail;
 	@FXML
 	private Label pvTelefono;
+	@FXML
+	private ComboBox<Proveedor> cbProveedor;
+	@FXML
+	private ComboBox<Subcategoria> cbCategorias;
 	
 	public void switchToMain() throws IOException {
 		App.setRoot("Main");
@@ -96,7 +103,7 @@ public class ProductosController implements Initializable {
 		try {
 			mostrarProductos();
 			mostrarPrimerProducto();		
-
+			fillCombos();
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
@@ -343,5 +350,47 @@ public class ProductosController implements Initializable {
 			}
 		}		
 	}//end mostrarproveedor
+	
+	/**
+	 * Hacemos una llamada a la base de datos y metemos los datos de los proveedores
+	 * y categorias en los combos. De está forma no habra lugar a error.
+	 */
+	public void fillCombos() {
+		Connection con = null;
+
+		try {
+			con = new Conector().getMySQLConnection();
+			ObservableList<Proveedor> proveedorObs = new ProveedorManager().findAllProveedor(con);
+			ObservableList<Subcategoria> subcategoriaObs = new SubcategoriaManager().findAllSubcategories(con);
+
+			cbCategorias.setItems(subcategoriaObs);
+			cbCategorias.getSelectionModel().selectFirst();
+			cbProveedor.setItems(proveedorObs);
+			cbProveedor.getSelectionModel().selectFirst();
+
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}//
+	
+	/**
+	 * Permite seleccionar las categorias para filtrar la tabla de productos.
+	 * @param event
+	 */
+	@FXML
+	private void seleccionarItemCategoria(MouseEvent event) {
+		tfBuscar.setText(cbCategorias.getSelectionModel().getSelectedItem().getId());
+	}
+	
+	@FXML
+	private void seleccionarItemProveedor(MouseEvent event) {
+		tfBuscar.setText(cbProveedor.getSelectionModel().getSelectedItem().getCif());
+	}
 
 }

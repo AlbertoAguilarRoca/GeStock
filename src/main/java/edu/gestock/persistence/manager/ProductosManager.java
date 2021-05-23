@@ -68,6 +68,11 @@ public class ProductosManager {
 
 	}// end
 	
+	/**
+	 * Cuenta la cantidad de productos que hay en la base de datos
+	 * @param con
+	 * @return número de filas de la columna
+	 */
 	public int countRowProducts(Connection con) {
 		String sql = "SELECT count(*) as rowcount FROM productos";
 		try (Statement stmt = con.createStatement()){
@@ -83,6 +88,25 @@ public class ProductosManager {
 			return -1;
 		}
 	}
+	
+	/**
+	 * Reduce el stock en base a la cantidad de producto vendido
+	 * @param con
+	 * @param id
+	 * @param unidadesVendidas
+	 */
+	public void reduceStock(Connection con, String id, int unidadesVendidas) {
+		String sql = "UPDATE productos SET cantidad = (cantidad - ?) WHERE id = ?";
+		try (PreparedStatement ps = con.prepareStatement(sql)){
+			ps.setInt(1, unidadesVendidas);
+			ps.setString(2, id);
+			ps.executeUpdate();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+
 
 	/**
 	 * Funcion para insertar nuevos productos

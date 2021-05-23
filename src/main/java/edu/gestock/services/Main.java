@@ -8,6 +8,7 @@ import edu.gestock.persistence.dao.Empleado;
 import edu.gestock.persistence.dao.Producto;
 import edu.gestock.persistence.manager.EmpleadoManager;
 import edu.gestock.persistence.manager.ProductosManager;
+import edu.gestock.services.mail.EmailNotification;
 
 public class Main {
 
@@ -17,13 +18,12 @@ public class Main {
 		
 		try {
 			
-			Producto producto = new ProductosManager().findProductosById(con, "hla");
+//			Producto producto = new ProductosManager().findProductosById(con, "greghe");
+//			
+//			Integer diferencia = producto.getCantidad() - producto.getRoturaStock();
+//			System.out.println(diferencia);
 			
-			if(producto == null) {
-				System.out.println("Producto no encontrado");
-			} else {
-				System.out.println(producto.toString());
-			}
+		
 		
 		} finally {
 			try {
