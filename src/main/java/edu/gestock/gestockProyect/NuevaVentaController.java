@@ -134,8 +134,7 @@ public class NuevaVentaController implements Initializable {
     			
     			listaCompra.add(productoLista);
     			calculaImporte(listaCompra);
-    			tvListaProductos.setItems(listaCompra);
-    			
+    			tvListaProductos.setItems(listaCompra); 			
     			
     		}
     		 		
@@ -163,6 +162,7 @@ public class NuevaVentaController implements Initializable {
     		
     		listaCompra.forEach(producto -> {
     			new EsVendidoManager().insertEsVendido(con, new EsVendido(producto.getId(), idVenta, producto.getCantidad()));
+    			//Borrar cantidad de producto de la bd
     		});
     		
     		App.setRoot("Main");
@@ -199,7 +199,7 @@ public class NuevaVentaController implements Initializable {
     }
     
     /**
-     * 
+     * Aplica un descuento al importe total
      */
     public void descontarImporte() {
     	DecimalFormatSymbols punto = new DecimalFormatSymbols();
@@ -210,7 +210,8 @@ public class NuevaVentaController implements Initializable {
     		btDescontar.setCursor(Cursor.WAIT);
     	} else {
     		Double descuento = Double.parseDouble(tfDescuento.getText()) / 100;
-    		Double importe = Double.parseDouble(lbTotalImporte.getText())*descuento;
+    		Double importeDesconsatar = Double.parseDouble(lbTotalImporte.getText())*descuento;
+    		Double importe = Double.parseDouble(lbTotalImporte.getText()) - importeDesconsatar;
     		lbTotalImporte.setText(f.format(importe));
     		btDescontar.setCursor(Cursor.DEFAULT);
     	}

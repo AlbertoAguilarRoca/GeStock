@@ -27,7 +27,7 @@
    <top>
       <AnchorPane prefHeight="80.0" prefWidth="1200.0" style="-fx-background-color: #426ddb;" BorderPane.alignment="CENTER">
          <children>
-            <MenuButton fx:id="mBtUser" contentDisplay="RIGHT" layoutX="973.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="201.0" style="-fx-background-color: #426ddb;" textFill="WHITE">
+            <MenuButton fx:id="mBtUser" contentDisplay="RIGHT" layoutX="938.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="236.0" style="-fx-background-color: #426ddb;" textFill="WHITE">
               <items>
                 <MenuItem mnemonicParsing="false" text="Ver Perfil" />
                   <SeparatorMenuItem mnemonicParsing="false" />
@@ -37,7 +37,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </MenuButton>
-            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="935.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="892.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/user_16px.png" />
                </image>
@@ -47,7 +47,7 @@
                   <Image url="@../img/logo-gestock-blanco.png" />
                </image>
             </ImageView>
-            <MenuBar fx:id="mnBar" layoutX="211.0" layoutY="1.0" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #426ddb;">
+            <MenuBar fx:id="mnBar" layoutX="211.0" layoutY="1.0" prefHeight="80.0" prefWidth="428.0" style="-fx-background-color: #426ddb;">
               <menus>
                 <Menu mnemonicParsing="false" text="Productos">
                   <items>
@@ -61,6 +61,17 @@
                         <MenuItem mnemonicParsing="false" text="Informes" />
                   </items>
                 </Menu>
+                  <Menu mnemonicParsing="false" text="Categorías">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Ver categorías" />
+                        <MenuItem mnemonicParsing="false" text="Ver subcategorías" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Empleados">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Ver Empleados" />
+                    </items>
+                  </Menu>
               </menus>
                <padding>
                   <Insets bottom="10.0" right="10.0" top="25.0" />
