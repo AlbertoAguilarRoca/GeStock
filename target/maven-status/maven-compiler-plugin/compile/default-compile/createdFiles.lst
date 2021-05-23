@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+edu\gestock\persistence\dao\Producto.class
+edu\gestock\gestockProyect\EmpleadosController.class
+>>>>>>> efe21088a992cb891845c62fdaed09bce2f5e41f
 edu\gestock\persistence\manager\VentasManager.class
 edu\gestock\gestockProyect\RegistroVentasController.class
 edu\gestock\services\Main.class

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.gestock.gestockProyect.EmpleadosController">
+   <center>
+      <AnchorPane fx:id="apcenter" prefHeight="362.0" prefWidth="475.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="tvcategorias" layoutX="59.0" layoutY="86.0" onMouseClicked="#handleMouseAction" prefHeight="523.0" prefWidth="920.0">
+              <columns>
+                <TableColumn fx:id="colid" prefWidth="38.0" text="id" />
+                  <TableColumn fx:id="colnombre" prefWidth="59.0" text="nombre" />
+              </columns>
+            </TableView>
+            <Button fx:id="btninsertar" layoutX="147.0" layoutY="692.0" mnemonicParsing="false" onAction="#insertEmpleado" text="Insertar" />
+            <Button fx:id="btnmodificar" layoutX="271.0" layoutY="705.0" mnemonicParsing="false" onAction="#updateEmpleado" text="Modificar" />
+            <Button fx:id="btneliminar" layoutX="442.0" layoutY="705.0" mnemonicParsing="false" onAction="#deleteEmpleado" text="Eliminar" />
+         </children>
+      </AnchorPane>
+   </center>
+   <right>
+      <AnchorPane fx:id="apright" prefHeight="841.0" prefWidth="199.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lbid" layoutX="64.0" layoutY="206.0" text="id" />
+            <Label fx:id="lbnombre" layoutX="48.0" layoutY="280.0" text="nombre" />
+            <TextField fx:id="tfid" layoutX="23.0" layoutY="239.0" prefHeight="25.0" prefWidth="93.0" />
+            <TextField fx:id="tfnombre" layoutX="33.0" layoutY="317.0" prefHeight="25.0" prefWidth="93.0" />
+         </children>
+      </AnchorPane>
+   </right>
+   <top>
+      <AnchorPane prefHeight="59.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+   </top>
+</BorderPane>

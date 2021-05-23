@@ -10,20 +10,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.gestock.persistence.dao.Empleado;
+import edu.gestock.persistence.dao.Proveedor;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class EmpleadoManager {
+	
 
 	/**
 	 * Función para encontrar todos los empleados de la base de datos
 	 * @param con
 	 * @return Lista con todos los empleados
 	 */
-	public List<Empleado> findAllEmployee(Connection con) {
+	public ObservableList<Empleado> findAllEmployee(Connection con) {
 		String sql = "SELECT * FROM empleado";
 		try(Statement stmt = con.createStatement()){
 			ResultSet result = stmt.executeQuery(sql);
 			result.beforeFirst();
-			List<Empleado> empleados = new ArrayList<>();
+			ObservableList<Empleado> empleados = FXCollections.observableArrayList();
 			while(result.next()) {
 				empleados.add(new Empleado(result));
 			}
@@ -35,6 +39,23 @@ public class EmpleadoManager {
 		}
 	}//end
 	
+	
+	public ObservableList<Empleado> finddistinctEmployee(Connection con) {
+		String sql = "SELECT * FROM empleado";
+		try(Statement stmt = con.createStatement()){
+			ResultSet result = stmt.executeQuery(sql);
+			result.beforeFirst();
+			ObservableList<Empleado> empleados = FXCollections.observableArrayList();
+			while(result.next()) {
+				empleados.add(new Empleado(result));
+			}
+			
+			return empleados;
+		} catch(SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}//end
 	/**
 	 * Función para encontrar un empleado mediante su identificador
 	 * @param con

@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.gestock.persistence.dao.Categoria;
+import edu.gestock.persistence.dao.Empleado;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class CategoriaManager {
 
@@ -18,12 +21,12 @@ public class CategoriaManager {
 	 * @param con
 	 * @return Array list de categorias
 	 */
-	public List<Categoria> findAllCategories(Connection con) {
+	public ObservableList<Categoria> findAllCategories(Connection con) {
 		String sql = "SELECT * FROM categoria";
 		try(Statement stmt = con.createStatement()){
 			ResultSet result = stmt.executeQuery(sql);
 			result.beforeFirst();
-			List<Categoria> categorias = new ArrayList<>();
+			ObservableList<Categoria> categorias = FXCollections.observableArrayList();
 			while(result.next()) {
 				categorias.add(new Categoria(result));
 			}
