@@ -1,4 +1,5 @@
 edu\gestock\persistence\dao\Producto.class
+edu\gestock\gestockProyect\EmpleadosController.class
 edu\gestock\persistence\manager\VentasManager.class
 edu\gestock\persistence\dao\Venta.class
 edu\gestock\services\Main.class

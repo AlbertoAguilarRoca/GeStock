@@ -35,6 +35,10 @@ public class MainController implements Initializable {
 	}
 
 	@FXML
+	public void switchToEmpleados() throws IOException {
+		App.setRoot("Empleados");
+	}
+	@FXML
 	public void switchToNewVenta() throws IOException {		
 		App.setRoot("NuevaVenta");		
 	}
