@@ -1,5 +1,6 @@
 package edu.gestock.gestockProyect;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.Date;
@@ -239,5 +240,10 @@ public class EmpleadosController implements Initializable {
 		}
 
 	}// end
+	
+	@FXML
+	public void switchToInicio() throws IOException {
+		App.setRoot("Main");
+	}
 
 }

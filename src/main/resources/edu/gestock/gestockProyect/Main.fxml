@@ -29,7 +29,7 @@
          <children>
             <MenuButton fx:id="mBtUser" contentDisplay="RIGHT" layoutX="938.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="236.0" style="-fx-background-color: #426ddb;" textFill="WHITE">
               <items>
-                <MenuItem mnemonicParsing="false" text="Ver Perfil" />
+                <MenuItem mnemonicParsing="false" onAction="#switchToPerfil" text="Ver Perfil" />
                   <SeparatorMenuItem mnemonicParsing="false" />
                 <MenuItem mnemonicParsing="false" onAction="#logOut" text="Cerrar Sesión" />
               </items>
@@ -57,14 +57,13 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Ventas">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Registro" />
-                        <MenuItem mnemonicParsing="false" text="Informes" />
+                    <MenuItem mnemonicParsing="false" onAction="#switchToRegistro" text="Registro" />
                   </items>
                 </Menu>
                   <Menu mnemonicParsing="false" text="Categorías">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Ver categorías" />
-                        <MenuItem mnemonicParsing="false" text="Ver subcategorías" />
+                        <MenuItem mnemonicParsing="false" onAction="#switchToCategoria" text="Ver categorías" />
+                        <MenuItem mnemonicParsing="false" onAction="#switchToSubcategoria" text="Ver subcategorías" />
                      </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Empleados">

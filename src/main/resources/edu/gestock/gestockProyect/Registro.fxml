@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.gestock.gestockProyect.RegistroVentasController">
-   <center>
+   <top>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tvVentas" layoutX="32.0" layoutY="209.0" prefHeight="596.0" prefWidth="590.0">
+            <TableView fx:id="tvVentas" layoutX="32.0" layoutY="209.0" onMouseClicked="#showListaProducto" prefHeight="596.0" prefWidth="590.0">
               <columns>
                 <TableColumn fx:id="colNVenta" prefWidth="169.0" text="Nº Venta" />
                 <TableColumn fx:id="colEmpleado" prefWidth="175.0" text="Empleado" />
@@ -24,10 +24,31 @@
                   <Font name="System Bold" size="32.0" />
                </font>
             </Text>
-            <ListView fx:id="listaCompra" layoutX="662.0" layoutY="209.0" prefHeight="596.0" prefWidth="488.0" />
-            <Button fx:id="btInicio" layoutX="614.0" layoutY="51.0" mnemonicParsing="false" onAction="#switchToInicio" text="Inicio" />
-            <Button fx:id="btInformes" layoutX="729.0" layoutY="51.0" mnemonicParsing="false" onAction="#switchToInformes" text="Informes" />
+            <Button fx:id="btInicio" layoutX="1013.0" layoutY="29.0" mnemonicParsing="false" onAction="#switchToInicio" prefHeight="55.0" prefWidth="160.0" style="-fx-background-color: #426ddb;" text="Volver a Inicio" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <TextField fx:id="tfBuscarVenta" layoutX="86.0" layoutY="145.0" prefHeight="31.0" prefWidth="349.0" promptText="Buscar por Nº Venta o por fecha" />
+            <TableView fx:id="tvProducto" layoutX="656.0" layoutY="209.0" prefHeight="596.0" prefWidth="517.0">
+              <columns>
+                <TableColumn fx:id="colRef" prefWidth="101.0" text="Referencia" />
+                <TableColumn fx:id="colNombre" prefWidth="197.0" text="Nombre" />
+                  <TableColumn fx:id="colTalla" prefWidth="57.0" text="Talla" />
+                  <TableColumn fx:id="colCantidad" prefWidth="78.0" text="Cantidad" />
+                  <TableColumn fx:id="colPrecio" prefWidth="83.0" text="Precio (€)" />
+              </columns>
+            </TableView>
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="32.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/search_40px.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="656.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Productos vendidos en la compra:">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
-   </center>
+   </top>
 </BorderPane>

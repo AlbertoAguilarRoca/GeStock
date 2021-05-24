@@ -1,12 +1,9 @@
-<<<<<<< HEAD
-=======
-edu\gestock\persistence\dao\Producto.class
 edu\gestock\gestockProyect\EmpleadosController.class
->>>>>>> efe21088a992cb891845c62fdaed09bce2f5e41f
 edu\gestock\persistence\manager\VentasManager.class
 edu\gestock\gestockProyect\RegistroVentasController.class
 edu\gestock\services\Main.class
 edu\gestock\gestockProyect\LoginController.class
+edu\gestock\gestockProyect\SubcategoriasController.class
 edu\gestock\persistence\dao\Categoria.class
 edu\gestock\persistence\dao\Proveedor.class
 edu\gestock\services\Id.class
@@ -23,6 +20,7 @@ edu\gestock\persistence\dao\Venta.class
 edu\gestock\persistence\dao\EsVendido.class
 edu\gestock\persistence\manager\EsVendidoManager.class
 edu\gestock\persistence\manager\EmpleadoManager.class
+edu\gestock\gestockProyect\PerfilController.class
 edu\gestock\persistence\manager\CategoriaManager.class
 edu\gestock\services\UserSession.class
 edu\gestock\gestockProyect\ProductosController.class
@@ -32,4 +30,5 @@ edu\gestock\gestockProyect\MainController.class
 edu\gestock\gestockProyect\App.class
 edu\gestock\persistence\dao\Empleado.class
 edu\gestock\services\mail\EmailNotification$1.class
+edu\gestock\gestockProyect\CategoriasController.class
 edu\gestock\persistence\manager\ProductosManager.class

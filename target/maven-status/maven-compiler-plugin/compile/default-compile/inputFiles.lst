@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\persistence\manager\EmpleadoManager.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\persistence\conector\Conector.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\persistence\dao\Categoria.java
@@ -7,6 +6,7 @@ D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\e
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\services\mail\EmailNotification.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\persistence\manager\ProveedorManager.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\persistence\manager\ProductosManager.java
+D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\gestockProyect\PerfilController.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\persistence\dao\Proveedor.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\persistence\conector\MySQLConstants.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\persistence\dao\Producto.java
@@ -14,13 +14,16 @@ D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\e
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\services\UserSession.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\gestockProyect\MainController.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\persistence\manager\CategoriaManager.java
+D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\gestockProyect\SubcategoriasController.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\persistence\dao\Empleado.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\services\ListaCompra.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\persistence\manager\SubcategoriaManager.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\gestockProyect\NuevoProductoController.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\persistence\manager\VentasManager.java
+D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\gestockProyect\CategoriasController.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\gestockProyect\ProductosController.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\services\Id.java
+D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\gestockProyect\EmpleadosController.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\gestockProyect\LoginController.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\persistence\dao\EsVendido.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\services\Main.java
@@ -28,32 +31,3 @@ D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\e
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\gestockProyect\App.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\gestockProyect\RegistroVentasController.java
 D:\Programs Files (x86)\Eclipse\eclipse-workspace\gestockProyect\src\main\java\edu\gestock\persistence\dao\Venta.java
-=======
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\persistence\dao\Empleado.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\gestockProyect\LoginController.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\persistence\dao\Venta.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\services\Main.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\persistence\conector\Conector.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\persistence\manager\VentasManager.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\persistence\manager\EmpleadoManager.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\gestockProyect\NuevaVentaController.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\persistence\dao\EsVendido.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\services\Id.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\gestockProyect\App.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\persistence\conector\MySQLConstants.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\persistence\manager\ProveedorManager.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\persistence\manager\ProductosManager.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\persistence\dao\Categoria.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\gestockProyect\ProductosController.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\persistence\manager\SubcategoriaManager.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\persistence\manager\EsVendidoManager.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\gestockProyect\MainController.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\gestockProyect\EmpleadosController.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\persistence\dao\Proveedor.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\persistence\dao\Producto.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\gestockProyect\NuevoProductoController.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\services\UserSession.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\persistence\dao\Subcategoria.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\services\ListaCompra.java
-C:\Users\Juan\Desktop\carpeta accenture\GeStock\src\main\java\edu\gestock\persistence\manager\CategoriaManager.java
->>>>>>> efe21088a992cb891845c62fdaed09bce2f5e41f

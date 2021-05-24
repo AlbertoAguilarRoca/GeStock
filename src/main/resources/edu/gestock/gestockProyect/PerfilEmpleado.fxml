@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.gestock.gestockProyect.PerfilController">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text layoutX="66.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Información del empleado">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Text>
+            <VBox layoutX="195.0" layoutY="169.0" prefHeight="250.0" prefWidth="347.0" spacing="10.0">
+               <children>
+                  <Label fx:id="lbId" />
+                  <Label fx:id="lbNombre" />
+                  <Label fx:id="lbApellidos" />
+                  <Label fx:id="lbDni" />
+                  <Label fx:id="lbFecha" />
+                  <Label fx:id="lbPermiso" />
+               </children>
+            </VBox>
+            <Button layoutX="968.0" layoutY="52.0" mnemonicParsing="false" onAction="#switchToInicio" prefHeight="55.0" prefWidth="160.0" style="-fx-background-color: #426ddb;" text="Volver a inicio" textFill="WHITE" />
+            <Button fx:id="btEditar" layoutX="67.0" layoutY="419.0" mnemonicParsing="false" onAction="#switchToEmpleado" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #426ddb;" text="Editar perfil" textFill="WHITE" />
+            <VBox layoutX="94.0" layoutY="169.0" prefHeight="259.0" prefWidth="105.0" spacing="10.0">
+               <children>
+                  <Label fx:id="lbId1" text="Identificador:" />
+                  <Label fx:id="lbNombre1" text="Nombre:" />
+                  <Label fx:id="lbApellidos1" text="Apellidos:" />
+                  <Label fx:id="lbDni1" text="DNI:" />
+                  <Label fx:id="lbFecha1" text="Fecha de Alta:" />
+                  <Label fx:id="lbPermiso1" text="Permiso:" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

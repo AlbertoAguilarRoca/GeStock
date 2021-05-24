@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.gestock.persistence.dao.EsVendido;
+import edu.gestock.services.ListaCompra;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 
 public class EsVendidoManager {
@@ -199,5 +202,32 @@ public class EsVendidoManager {
 		}
 		
 	}//end
+	
+	/**
+	 * Metodo para enlazar las ventas con los productos vendidos en dicha compra
+	 * @param con
+	 * @param nVenta
+	 * @return
+	 */
+	public ObservableList<ListaCompra> productosEnUnaVenta(Connection con, String nVenta) {
+		String sql = "select p.id, p.nombre, p.talla, p.precio, ev.unidades "
+				+ "from productos p, esVendido ev, ventas v "
+				+ "where p.id = ev.idProducto and ev.nVenta = v.nVenta "
+				+ "and v.nVenta = ?";
+		try(PreparedStatement ps = con.prepareStatement(sql)) {
+			ps.setString(1, nVenta);
+			ResultSet result = ps.executeQuery();
+			result.beforeFirst();
+			ObservableList<ListaCompra> listaCompra = FXCollections.observableArrayList();
+			while(result.next()) {
+				listaCompra.add(new ListaCompra(result.getString(1), 
+						result.getString(2), result.getString(3), result.getDouble(4), result.getInt(5)));
+			}
+			return listaCompra;
+		} catch(SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 }

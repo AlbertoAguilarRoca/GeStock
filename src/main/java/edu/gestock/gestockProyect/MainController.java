@@ -58,4 +58,24 @@ public class MainController implements Initializable {
 		App.setRoot("NuevoProductos");
 	}
 	
+	@FXML
+	public void switchToRegistro() throws IOException {
+		App.setRoot("Registro");
+	}
+	
+	@FXML
+	public void switchToCategoria() throws IOException {
+		App.setRoot("Categorias");
+	}
+	
+	@FXML
+	public void switchToSubcategoria() throws IOException {
+		App.setRoot("Subcategorias");
+	}
+	
+	@FXML
+	public void switchToPerfil() throws IOException {
+		App.setRoot("PerfilEmpleado");
+	}
+	
 }
