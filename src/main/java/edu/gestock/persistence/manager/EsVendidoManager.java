@@ -203,6 +203,8 @@ public class EsVendidoManager {
 		
 	}//end
 	
+	
+	
 	/**
 	 * Metodo para enlazar las ventas con los productos vendidos en dicha compra
 	 * @param con

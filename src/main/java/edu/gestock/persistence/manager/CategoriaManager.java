@@ -1,6 +1,5 @@
 package edu.gestock.persistence.manager;
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,16 +17,17 @@ public class CategoriaManager {
 
 	/**
 	 * Método para mostrar todas las categorias de la base de datos
+	 * 
 	 * @param con
 	 * @return Array list de categorias
 	 */
 	public ObservableList<Categoria> findAllCategories(Connection con) {
 		String sql = "SELECT * FROM categoria";
-		try(Statement stmt = con.createStatement()){
+		try (Statement stmt = con.createStatement()) {
 			ResultSet result = stmt.executeQuery(sql);
 			result.beforeFirst();
 			ObservableList<Categoria> categorias = FXCollections.observableArrayList();
-			while(result.next()) {
+			while (result.next()) {
 				categorias.add(new Categoria(result));
 			}
 			return categorias;
@@ -35,12 +35,30 @@ public class CategoriaManager {
 			e.printStackTrace();
 			return null;
 		}
-	}//end
-	
-	
+	}// end
+
+	public Categoria findCategoriesid(Connection con, String id) {
+
+		String sql = "SELECT * FROM categoria WHERE id = ?";
+		try (PreparedStatement ps = con.prepareStatement(sql)) {
+			ps.setString(1, id);
+			ResultSet result = ps.executeQuery();
+			result.beforeFirst();
+			Categoria categoria = null;
+			while (result.next()) {
+				categoria= new Categoria(result);
+			}
+			return categoria;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}// end
+
 	/**
 	 * Método para insertar una nueva categoria
-	 * @param Connection con, Categoria categoria   
+	 * 
+	 * @param Connection con, Categoria categoria
 	 * @return numero de filas afectadas
 	 */
 	public int insertNewCategory(Connection con, Categoria categoria) {
@@ -54,12 +72,13 @@ public class CategoriaManager {
 			e.printStackTrace();
 			return 0;
 		}
-		
-	}//end
-	
+
+	}// end
+
 	/**
 	 * Método para actualizar una categoria
-	 * @param Connection con, Categoria categoria   
+	 * 
+	 * @param Connection con, Categoria categoria
 	 * @return numero de filas afectadas
 	 */
 	public int updateCategoryByID(Connection con, Categoria categoria, String oldId) {
@@ -74,12 +93,13 @@ public class CategoriaManager {
 			e.printStackTrace();
 			return 0;
 		}
-		
-	}//end
-	
+
+	}// end
+
 	/**
 	 * Método para borrar una categoria
-	 * @param Connection con, Categoria categoria   
+	 * 
+	 * @param Connection con, Categoria categoria
 	 * @return numero de filas afectadas
 	 */
 	public int deleteCategoryByID(Connection con, String oldId) {
@@ -92,7 +112,7 @@ public class CategoriaManager {
 			e.printStackTrace();
 			return 0;
 		}
-		
-	}//end
-	
+
+	}// end
+
 }
