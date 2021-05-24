@@ -21,7 +21,6 @@ class ProductosManagerTest {
 
 	@Test
 	void testFindAllProductos() throws ClassNotFoundException, SQLException {
-		System.out.println("Probando el findAll");
 
 		Connection con = new Conector().getMySQLConnection();
 		try {
@@ -42,12 +41,11 @@ class ProductosManagerTest {
 
 	@Test
 	void testFindProductosById() throws ClassNotFoundException, SQLException {
-		System.out.println("Probando el findid");
 
 		Connection con = new Conector().getMySQLConnection();
 		try {
 
-		Producto aux = new ProductosManager().findProductosById(con, "dwad");
+		Producto aux = new ProductosManager().findProductosById(con, "hyh");
 
 		assertNotNull(aux);
 
@@ -63,7 +61,6 @@ class ProductosManagerTest {
 
 	@Test
 	void testCountRowProducts() throws ClassNotFoundException, SQLException {
-		System.out.println("Probando el CountRow");
 
 		Connection con = new Conector().getMySQLConnection();
 		try {
@@ -89,10 +86,10 @@ class ProductosManagerTest {
 
 		try {
 
-			Producto insertado = new Producto("RR", "zapatos", 29.85, "xl",7 , "Verde", "B49515411", "gJFAAD", "Son la caña", 8);
+			Producto insertado = new Producto("hyh", "zapatos", 29.85, "xl",7 , "Verde", "B49515411", "gJFAAD", "Son la caña", 8);
 			int numero = new ProductosManager().insertProductos(con, insertado);
-			Producto prod = new ProductosManager().findProductosById(con, "RR");
-			//assertEquals(insertado, prod); // preguntar por que esta bien
+			Producto prod = new ProductosManager().findProductosById(con, "hyh");
+			assertEquals(insertado, prod); // preguntar por que esta bien
 			assumeNotNull(prod);
 			assertNotEquals(numero, 0);
 
@@ -110,15 +107,14 @@ class ProductosManagerTest {
 	@Test
 	void testUpdateProductos() throws ClassNotFoundException, SQLException {
 		Connection con = new Conector().getMySQLConnection();
-		System.out.println("Probando el update");
 
 		try {
-			Producto insertado = new Producto("RR", "guantes", 29.85, "xl",7 , "ROJOS", "B49515411", "gJFAAD", "Son la caña", 8);
-			int numero = new ProductosManager().updateProductos(con, insertado, "RR");
-			Producto aux = new ProductosManager().findProductosById(con, "RR");
+			Producto insertado = new Producto("hyh", "Guantes de Boxeo", 29.85, "xl",7 , "ROJOS", "B49515411", "gJFAAD", "Son la caña", 8);
+			int numero = new ProductosManager().updateProductos(con, insertado, "hyh");
+			Producto aux = new ProductosManager().findProductosById(con, "hyh");
 			
 			assertNotNull(aux);
-			//assertEquals(insertado, aux);// preguntar por que esta bien
+			assertEquals(insertado, aux);
 			assertNotEquals(numero, 0);
 
 		} finally {
@@ -133,13 +129,12 @@ class ProductosManagerTest {
 	@Test
 	void testDeleteProductos() throws ClassNotFoundException, SQLException {
 		Connection con = new Conector().getMySQLConnection();
-		System.out.println("Probando el delete");
 
 		try {
 			
 			
-			int numero = new ProductosManager().deleteProductos(con, "RR");
-			Producto aux = new ProductosManager().findProductosById(con, "RR");
+			int numero = new ProductosManager().deleteProductos(con, "hyh");
+			Producto aux = new ProductosManager().findProductosById(con, "hyh");
 			assertNull(null, aux);
 			assertNotEquals(numero, 0);
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.image.*?>
@@ -22,6 +23,14 @@
                   <TableColumn fx:id="colPrecio" prefWidth="140.0" text="Precio" />
               </columns>
             </TableView>
+            <Label fx:id="lbExito" alignment="CENTER" layoutX="233.0" layoutY="131.0" style="-fx-border-width: 3px;" textFill="#46c726">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </Label>
          </children>
 		</AnchorPane>
 	</center>

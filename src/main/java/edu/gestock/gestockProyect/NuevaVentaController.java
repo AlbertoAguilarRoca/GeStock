@@ -26,11 +26,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.fxml.Initializable;
 
@@ -90,12 +92,16 @@ public class NuevaVentaController implements Initializable {
     @FXML
     private Button btDescontar;
     
+    @FXML
+    private Label lbExito;
+    
     ObservableList<ListaCompra> listaCompra = FXCollections.observableArrayList();
     
     
     @Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+
+    	
     	if(tfDescuento.getText().isBlank() || tfDescuento.getText().equals("0")) {
     		btDescontar.disableProperty();
     		btDescontar.setCursor(Cursor.WAIT);
@@ -123,6 +129,7 @@ public class NuevaVentaController implements Initializable {
     		colPrecio.setCellValueFactory(new PropertyValueFactory<ListaCompra, Double>("precio"));
     		    		
     		if(productoNuevo == null) {
+    			lbProductNotFound.setVisible(true);
     			lbProductNotFound.setText("Referencia no válida. Producto no encontrado.");
     		} else {
     			
@@ -138,7 +145,7 @@ public class NuevaVentaController implements Initializable {
     			listaCompra.add(productoLista);
     			calculaImporte(listaCompra);
     			tvListaProductos.setItems(listaCompra);
-    			lbProductNotFound.setText("");
+    			lbProductNotFound.setVisible(false);
     			
     		}
     		 		
@@ -179,6 +186,12 @@ public class NuevaVentaController implements Initializable {
     			
     			notificaRoturaStock(con, producto.getId());
     		});
+    		
+    		Alert alerta = new Alert(AlertType.INFORMATION);
+    		alerta.setTitle("Información:");
+    		alerta.setHeaderText("La venta se ha realizado con éxito.");
+    	
+    		alerta.showAndWait();
     		
     		App.setRoot("Main");
     		

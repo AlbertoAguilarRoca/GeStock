@@ -205,6 +205,8 @@ public class NuevoProductoController implements Initializable {
 				imprimeMensajeCarga(totalRowsBefore, totalRowsAfter);
 				
 			} catch (Exception e) {
+				lbMessageUp.setText("Ha ocurrido un error en la subida.");
+				lbMessageUp.setTextFill(Color.CRIMSON);
 				e.printStackTrace();
 			}
 					
@@ -223,9 +225,6 @@ public class NuevoProductoController implements Initializable {
 			int total = despues - antes;
 			lbMessageUp.setText(total + " producto/s subidos con éxito.");
 			lbMessageUp.setTextFill(Color.GREEN);
-		} else {
-			lbMessageUp.setText("Ha ocurrido un error en la subida.");
-			lbMessageUp.setTextFill(Color.CRIMSON);
 		}
 	}
 

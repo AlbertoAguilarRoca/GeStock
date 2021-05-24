@@ -134,7 +134,7 @@
                   <TableColumn fx:id="colTalla" minWidth="0.0" prefWidth="60.0" text="Talla" />
                   <TableColumn fx:id="colPrecio" prefWidth="79.0" text="Precio" />
                   <TableColumn fx:id="colColor" prefWidth="88.0" text="Color" />
-                  <TableColumn fx:id="colSubcategoria" prefWidth="264.0" text="Categoria" />
+                  <TableColumn fx:id="colSubcategoria" prefWidth="264.0" text="Descripción" />
                   <TableColumn fx:id="colCantidad" prefWidth="66.0" text="Stock" />
                   <TableColumn fx:id="colRotura" prefWidth="72.0" text="Rotura" />
               </columns>
